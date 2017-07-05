@@ -122,9 +122,6 @@ export default {
     padding-left: 5px;
     height: 16px;
 }
-/*.author-publish {
-    margin-top: 10px;
-}*/
 .publish-type {
     border: 1px solid #999;
     border-radius: 4px;

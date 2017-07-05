@@ -23,7 +23,6 @@ export default new Router({
           }
         }
       ]
-      // redirect: '/content'
     },
     {
       path: '/menumore',
