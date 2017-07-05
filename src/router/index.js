@@ -1,15 +1,38 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-
+import hello from '@/components/hello'
+import menumore from '@/components/menumore'
+import detail from '@/components/detail'
+import content from '@/components/content'
+import nav from '@/components/nav'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      component: hello,
+      children: [
+        {
+          path: '/',
+          name: 'Hello',
+          components: {
+            default: hello,
+            nav: nav,
+            content: content
+          }
+        }
+      ]
+      // redirect: '/content'
+    },
+    {
+      path: '/menumore',
+      name: 'more',
+      component: menumore
+    },
+    {
+      path: '/detail/one',
+      component: detail
     }
   ]
 })

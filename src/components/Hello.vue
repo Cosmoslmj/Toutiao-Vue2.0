@@ -1,23 +1,32 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div id="app">
+    <!-- 头部开始 -->
+    <div class="header">
+      <div class="top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-2 bar-l">
+              <a href=""><img src="https://s3b.pstatp.com/growth/mobile_list/image/feed_ic_message_normal@3x_f2ea949f120fda7532de30660fd47455.png"></a>
+            </div>
+            <div class="col-xs-8 bar-m">
+              <a href="">
+                <img src="https://s3.pstatp.com/growth/mobile_list/image/wap_logo@3x_581de69e38eae19e1cc57449a97be10f.png">
+                <img class="refresh" src="https://s3a.pstatp.com/growth/mobile_list/image/titlebar_refresh_small@3x_96fb31e43870246a450c5812493204bd.png">
+              </a>
+            </div>
+            <div class="col-xs-2 bar-r">
+              <a href="">
+                <img src="https://s3.pstatp.com/growth/mobile_list/image/feed_ic_search_normal@3x_0f198e566fac66cbb016bc72f15d4f39.png">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <router-view name="nav"></router-view> 
+    </div>
+    <router-view name="content"></router-view> 
   </div>
+
 </template>
 
 <script>
@@ -25,29 +34,179 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
-
-ul {
-  list-style-type: none;
+* {
+  margin: 0;
   padding: 0;
 }
-
-li {
+.clearfix:after{
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+.clearfix{zoom:1;};
+.header {
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background-color: #F5F5F5;
+}
+.top-bar {
+/*  height: 50px;*/
+  background-color: #D43D3D;
+}
+.top-nav-bar {
+  border-bottom: 2px solid #f1f1f1;
+}
+.bar-l a, .bar-r a{
+  display: block;
+  width: 45px;
+  height: 50px;
+  line-height: 50px;
+}
+.bar-l a img {
+  margin-left: -14px;
+}
+.bar-l a img, .bar-r a img{
+  width: 28px;
+  height: 28px;
+}
+.bar-m a {
+  width: 96px;
+  height: 50px;
+  line-height: 50px;
+}
+.bar-m a img {
+  height: 20px;
+}
+.bar-m a img.refresh {
+height: 16px;
+}
+.nav-left-menu {
+  white-space:nowrap;
+  overflow-x: scroll;
+  /*width:2000px;*/
+}
+.nav-left-menu::-webkit-scrollbar {
+  display:none;
+}
+.nav-left-menu ul {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 0;
+}
+.nav-left-menu ul li {
+  list-style: none;
   display: inline-block;
-  margin: 0 10px;
+  font-size: 18px;
 }
-
-a {
-  color: #42b983;
+.nav-left-menu ul li a {
+  color: #505050;
+  text-decoration: none;
+  margin-right: 25px;
 }
+.nav-left-menu ul li a:hover {
+  color: #D43D3D;
+}
+.nav-right-more {
+  width: 20px;
+  height: 30px;
+  box-shadow: -2px 0px 1px #ccc;
+  border-left: 1px solid #ccc;
+  margin-top: 5px;
+  right: 8px;
+  margin-left: 20px;
+  overflow: hidden;
+}
+.nav-right-more .glyphicon {
+  font-size: 18px;
+  right: 5px;
+  top:5px;
+  color: #f85959;
+}
+/*内容开始*/
+.content {
+  margin-top: 90px;
+}
+section {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px; 
+  border-bottom: 1px solid #F5F5F5;
+}
+.list-detail {
+  font-size: 18px;
+  text-align: left;
+  color: #131313;
+  margin-top: 0;
+  line-height: 1.2em;
+}
+.list-info {
+  font-size: 9px;
+  -webkit-transform: scale(0.75);
+  -o-transform: scale(1);
+  color: #999;
+  text-align: left;
+  position: absolute;
+  padding: 5px;
+  padding-left: 0;
+  left: 0;
+}
+.list-info span {
+  margin-right: 6px; 
+}
+.list-info .hot-label {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  color:#f85959;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #fff;
+  border-color: rgba(248,89,89,.5);
+}
+.list-img img{
+/*  width: 125px;*/
+  margin-left: -30px; 
+  height: 80px;
+  overflow: hidden;
+}
+.list2-img {
+  display: flex;
+}
+.list2-img div img{
+  flex: 1;
+  width: 95%;
+  margin-bottom: 5px;
+}
+.list2-info {
+  text-align: left;
+  font-size: 9px;
+  -webkit-transform: scale(0.75);
+  -o-transform: scale(1);
+  color: #999;
+  position: absolute;
+  left: -15px;
+  padding-bottom: 5px;
+}
+/*内容结束*/
 </style>
