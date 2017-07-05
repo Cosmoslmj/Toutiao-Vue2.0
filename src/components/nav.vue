@@ -67,3 +67,49 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .nav-left-menu {
+  white-space:nowrap;
+  overflow-x: scroll;
+  /*width:2000px;*/
+}
+.nav-left-menu::-webkit-scrollbar {
+  display:none;
+}
+.nav-left-menu ul {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 0;
+}
+.nav-left-menu ul li {
+  list-style: none;
+  display: inline-block;
+  font-size: 18px;
+}
+.nav-left-menu ul li a {
+  color: #505050;
+  text-decoration: none;
+  margin-right: 25px;
+}
+.nav-left-menu ul li a:hover {
+  color: #D43D3D;
+}
+.nav-right-more {
+  width: 20px;
+  height: 30px;
+  box-shadow: -2px 0px 1px #ccc;
+  border-left: 1px solid #ccc;
+  margin-top: 5px;
+  right: 8px;
+  margin-left: 20px;
+  overflow: hidden;
+}
+.nav-right-more .glyphicon {
+  font-size: 18px;
+  right: 5px;
+  top:5px;
+  color: #f85959;
+}
+</style>

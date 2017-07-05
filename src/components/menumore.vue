@@ -192,7 +192,4 @@ export default {
     border: 1px solid #ccc;
     text-decoration: none;
   }
-/*  .cmenu:first-child a: {
-    background: #f0f0f0;
-  }*/
 </style>

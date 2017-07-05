@@ -153,3 +153,76 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+    /*内容开始*/
+.content {
+  margin-top: 90px;
+}
+section {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px; 
+  border-bottom: 1px solid #F5F5F5;
+}
+.list-detail {
+  font-size: 18px;
+  text-align: left;
+  color: #131313;
+  margin-top: 0;
+  line-height: 1.2em;
+}
+.list-info {
+  font-size: 9px;
+  -webkit-transform: scale(0.75);
+  -o-transform: scale(1);
+  color: #999;
+  text-align: left;
+  position: absolute;
+  padding: 5px;
+  padding-left: 0;
+  left: 0;
+}
+.list-info span {
+  margin-right: 6px; 
+}
+.list-info .hot-label {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  color:#f85959;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #fff;
+  border-color: rgba(248,89,89,.5);
+}
+.list-img img{
+/*  width: 125px;*/
+  margin-left: -30px; 
+  height: 80px;
+  overflow: hidden;
+}
+.list2-img {
+  display: flex;
+}
+.list2-img div img{
+  flex: 1;
+  width: 95%;
+  margin-bottom: 5px;
+}
+.list2-info {
+  text-align: left;
+  font-size: 9px;
+  -webkit-transform: scale(0.75);
+  -o-transform: scale(1);
+  color: #999;
+  position: absolute;
+  left: -15px;
+  padding-bottom: 5px;
+}
+.list3-img img{
+  width: 100%;
+  margin-bottom: 5px;
+}
+/*内容结束*/
+</style>
