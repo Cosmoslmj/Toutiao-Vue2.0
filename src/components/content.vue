@@ -19,7 +19,7 @@
           </div>  
         </a>
       </section>
-      <section v-for="itemtwo in contlisttwo">
+      <section v-for="itemtwo in contlisttwo" @click="gotopage">
         <a href="javascript:;">
           <div class="containter"> 
             <div class="row">
@@ -46,6 +46,39 @@
                   <span class="net">{{ itemtwo.info[0] }}</span>
                   <span class="comment">{{ itemtwo.info[1] }}</span>
                   <span class="time">{{ itemtwo.info[2] }}</span>
+                </div>
+              </div> 
+            </div>                     
+          </div>
+        </a>
+      </section>
+      <section v-for="itemthree in contlistthree" @click="gotopage">
+        <a href="javascript:;">
+          <div class="containter"> 
+            <div class="row">
+              <div class="col-xs-12">
+                <h3 class="list-detail">
+                  {{ itemthree.detail }}
+                </h3>
+              </div>
+            </div>
+            <div class="list3-img">
+                <div>
+                  <img :src="itemthree.src">
+                </div>
+                <!-- <div>
+                  <img :src="itemtwo.src[1]">
+                </div>
+                <div>
+                  <img :src="itemtwo.src[2]">
+                </div>  -->         
+            </div>
+            <div class="list2-info">
+              <div class="row"> 
+                <div class="col-xs-12">
+                  <span class="net">{{ itemthree.info[0] }}</span>
+                  <span class="comment">{{ itemthree.info[1] }}</span>
+                  <span class="time">{{ itemthree.info[2] }}</span>
                 </div>
               </div> 
             </div>                     
@@ -91,6 +124,23 @@ export default {
         {
           detail: '此岛曾是中国最大的岛屿，比台湾大两倍，却被一无耻小人拱手相让',
           src: ['https://p3.pstatp.com/list/1f8e0005490c35f063c6', 'https://p3.pstatp.com/list/1f850005430b5744476a', 'https://p3.pstatp.com/list/2c2900023639feefadff'],
+          info: ['苹果说历史', '评论 20万', '5小时之前']
+        }
+      ],
+      contlistthree: [
+        {
+          detail: '董明珠造车：5分钟充满电能跑200公里,寿命可达30年！',
+          src: 'https://p3.pstatp.com/list/2c3300046d246375f763',
+          info: ['汽车门槛', '评论 20万', '1小时之前']
+        },
+        {
+          detail: '李晓霞复出征战全运会，国乒有话说！',
+          src: 'https://p3.pstatp.com/list/2c2900030bb49807b639',
+          info: ['科汇院', '评论 76万', '3小时之前']
+        },
+        {
+          detail: '此岛曾是中国最大的岛屿，比台湾大两倍，却被一无耻小人拱手相让',
+          src: 'https://p3.pstatp.com/list/1f8e0005490c35f063c6',
           info: ['苹果说历史', '评论 20万', '5小时之前']
         }
       ]

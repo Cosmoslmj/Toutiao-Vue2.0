@@ -22,7 +22,9 @@
       </div>
       <div class="channel-list">
         <ul class="row container">
-          <li class="col-xs-3" v-for="item in clist"><a href="">{{ item.cname }}</a></li>
+          <!-- <transition> -->
+          <li class="col-xs-3" v-for="(item, index) in clist"><a href="">{{ item.cname }}</a></li>
+         <!--  </transition> -->
         </ul>
       </div>     
     </div>
@@ -32,7 +34,7 @@
       </div>
       <div class="channel-list">
         <ul class="row container">
-          <li class="col-xs-3" v-for="item in addclist"><a href="">{{ item.addcname }}</a></li>
+          <li class="col-xs-3 cmenu" v-for="item in addclist"><a href="">{{ item.addcname }}</a></li>
         </ul>
       </div>   
     </div>
@@ -188,5 +190,9 @@ export default {
     color: #131313;
     font-weight: 800;
     border: 1px solid #ccc;
+    text-decoration: none;
   }
+/*  .cmenu:first-child a: {
+    background: #f0f0f0;
+  }*/
 </style>
