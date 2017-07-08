@@ -1,6 +1,8 @@
 <template>
     <div class="container clearfix content">
-      <section v-for="item in contlist" @click="gotopage">
+      <mt-loadmore :top-method="loadTop"  ref="loadmore" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading"
+  infinite-scroll-distance="20">
+        <section v-for="item in contlist" @click="gotopage">
         <a href="javascript:;">
           <div class="row">
             <div class="col-xs-8">
@@ -18,8 +20,8 @@
             </div>
           </div>  
         </a>
-      </section>
-      <section v-for="itemtwo in contlisttwo" @click="gotopage">
+        </section>
+        <section v-for="itemtwo in contlisttwo" @click="gotopage">
         <a href="javascript:;">
           <div class="containter"> 
             <div class="row">
@@ -51,8 +53,8 @@
             </div>                     
           </div>
         </a>
-      </section>
-      <section v-for="itemthree in contlistthree" @click="gotopage">
+        </section>
+        <section v-for="itemthree in contlistthree" @click="gotopage">
         <a href="javascript:;">
           <div class="containter"> 
             <div class="row">
@@ -84,11 +86,13 @@
             </div>                     
           </div>
         </a>
-      </section>
+        </section>
+      </mt-loadmore>
     </div>
 </template>
 
 <script>
+import { Indicator } from 'mint-ui'
 export default {
   name: 'content',
   data () {
@@ -148,7 +152,35 @@ export default {
   },
   methods: {
     gotopage () {
-      this.$router.push({path: '/detail/one'})
+      Indicator.open(() => {
+        this.text = ''
+        this.spinnerType = 'triple-bounce'
+      })
+      setTimeout(() => {
+        Indicator.close()
+        this.$router.push({path: '/detail'})
+      }, 1000)
+    },
+    loadTop () {
+      setTimeout(() => {
+        var i = 0
+        var len = this.contlist.length
+        console.log(len)
+        this.contlist.splice(0, this.contlist.length)
+        for (i = 0; i < len; i++) {
+          this.contlist.push(this.contlistthree[i])
+        }
+        this.$refs.loadmore.onTopLoaded()
+      }, 500)
+    },
+    loadMore () {
+      this.loading = true
+      setTimeout(() => {
+        for (let i = 0; i < this.contlist.length; i++) {
+          this.contlistthree.push(this.contlist[i])
+        }
+        this.loading = false
+      }, 500)
     }
   }
 }
@@ -187,8 +219,6 @@ section {
   margin-right: 6px; 
 }
 .list-info .hot-label {
-  width: 16px;
-  height: 16px;
   line-height: 16px;
   color:#f85959;
   display: inline-block;

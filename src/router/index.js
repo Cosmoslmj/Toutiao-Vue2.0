@@ -6,7 +6,6 @@ import detail from '@/components/detail'
 import content from '@/components/content'
 import nav from '@/components/nav'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -30,7 +29,7 @@ export default new Router({
       component: menumore
     },
     {
-      path: '/detail/one',
+      path: '/detail',
       component: detail
     }
   ]
