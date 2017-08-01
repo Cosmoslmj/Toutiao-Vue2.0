@@ -180,7 +180,7 @@ export default {
   .channel-list ul li {
     display: inline-block;
     height: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 10px;  
   }
   .channel-list ul li a{
     display: block;

@@ -1,27 +1,29 @@
 <template>
   <div class="top-nav-bar">        
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-10 nav-left-menu">
-              <div>
-                <ul>
-                  <li>
-                    <a v-for="item in navlist">{{ item.nav }}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>            
-            <div class="col-xs-2 nav-right-more">
-              <router-link to="/menumore">
-                <span class="glyphicon glyphicon-plus"></span>
-              </router-link>            
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-10 nav-left-menu">
+          <div>
+            <ul>
+              <li>
+                <a v-for="(item, index) in navlist" to='/' @click="changeitem">{{ item.nav }}
+                </a>
+              </li>
+            </ul>
           </div>
-        </div>        
+        </div>            
+        <div class="col-xs-2 nav-right-more">
+          <router-link to="/menumore">
+            <span class="glyphicon glyphicon-plus"></span>
+          </router-link>            
+        </div>
       </div>
+    </div>        
+  </div>
 </template>
 
 <script>
+import { Indicator } from 'mint-ui'
 export default {
   data () {
     return {
@@ -63,6 +65,19 @@ export default {
           nav: '时尚'
         }
       ]
+    }
+  },
+  methods: {
+    changeitem () {
+      Indicator.open(() => {
+        this.text = ''
+        this.spinnerType = 'triple-bounce'
+      })
+      setTimeout(() => {
+        Indicator.close()
+        console.log('4')
+        this.$router.push({path: '/'})
+      }, 500)
     }
   }
 }

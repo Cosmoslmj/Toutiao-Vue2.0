@@ -3,7 +3,7 @@
       <mt-loadmore :top-method="loadTop"  ref="loadmore" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading"
   infinite-scroll-distance="20">
         <section v-for="item in contlist" @click="gotopage">
-        <a href="javascript:;">
+          <a href="javascript:;">
           <div class="row">
             <div class="col-xs-8">
               <h3 class="list-detail">
@@ -19,10 +19,10 @@
               <img :src="item.src">
             </div>
           </div>  
-        </a>
+          </a>
         </section>
         <section v-for="itemtwo in contlisttwo" @click="gotopage">
-        <a href="javascript:;">
+          <a href="javascript:;">
           <div class="containter"> 
             <div class="row">
               <div class="col-xs-12">
@@ -52,10 +52,10 @@
               </div> 
             </div>                     
           </div>
-        </a>
+          </a>
         </section>
         <section v-for="itemthree in contlistthree" @click="gotopage">
-        <a href="javascript:;">
+          <a href="javascript:;">
           <div class="containter"> 
             <div class="row">
               <div class="col-xs-12">
@@ -85,7 +85,7 @@
               </div> 
             </div>                     
           </div>
-        </a>
+          </a>
         </section>
       </mt-loadmore>
     </div>
